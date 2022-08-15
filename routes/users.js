@@ -22,10 +22,10 @@ router.delete("/:id", verifyToken, deleteUser);
 router.get("/find/:id", getUser);
 
 // subscribe a user
-router.put("/sub/:channelID", verifyToken, subscribe);
+router.put("/sub/:id", verifyToken, subscribe);
 
 // unsubscribe a user
-router.put("/unsub//:channelID", verifyToken, unsubscribe);
+router.put("/unsub//:id", verifyToken, unsubscribe);
 
 // like a video
 router.put("/like/:videoID", verifyToken, like);
