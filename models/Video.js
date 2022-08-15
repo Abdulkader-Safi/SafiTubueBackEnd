@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const VideoSchema = new mongoose.Schema(
   {
-    userID: {
+    userId: {
       type: String,
       required: true,
     },
@@ -14,16 +14,16 @@ const VideoSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    imgURL: {
+    imgUrl: {
       type: String,
       required: true,
     },
-    videoURL: {
+    videoUrl: {
       type: String,
       required: true,
     },
-    title: {
-      views: Number,
+    views: {
+      type: Number,
       default: 0,
     },
     tags: {
@@ -39,9 +39,15 @@ const VideoSchema = new mongoose.Schema(
       default: [],
     },
   },
-  {
-    timestamps: true,
-  }
+  { timestamps: true }
 );
 
 export default mongoose.model("Video", VideoSchema);
+/*
+{
+  "title": "title",
+  "desc": "description",
+  "imgURL": "imgURL"
+  "videoURL":"videoURL"
+}
+*/

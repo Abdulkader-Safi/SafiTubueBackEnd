@@ -33,3 +33,11 @@ const UserSchema = new mongoose.Schema(
 );
 
 export default mongoose.model("User", UserSchema);
+
+/*
+{
+  "name":"name"
+  "email":"email"
+  "password":"password"
+}
+*/

@@ -1,17 +1,30 @@
 import express from "express";
 import {
-  getVideo,
   addVideo,
-  updateVideo,
+  addView,
   deleteVideo,
+  getByTag,
+  getVideo,
+  random,
+  search,
+  sub,
+  trend,
+  updateVideo,
 } from "../contrallers/videos.js";
 import { verifyToken } from "../verifyToken.js";
 
 const router = express.Router();
 
-router.get("/:id", getVideo);
-router.post("/:id", verifyToken, addVideo);
+//create a video
+router.post("/", verifyToken, addVideo);
 router.put("/:id", verifyToken, updateVideo);
-router.delete("/find/:id", verifyToken, deleteVideo);
+router.delete("/:id", verifyToken, deleteVideo);
+router.get("/find/:id", getVideo);
+router.put("/view/:id", addView);
+router.get("/trend", trend);
+router.get("/random", random);
+router.get("/sub", verifyToken, sub);
+router.get("/tags", getByTag);
+router.get("/search", search);
 
 export default router;
