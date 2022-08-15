@@ -12,25 +12,15 @@ import { verifyToken } from "../verifyToken.js";
 
 const router = express.Router();
 
-// Update user
-router.put("/:id", verifyToken, update);
-
-// delete user
-router.delete("/:id", verifyToken, deleteUser);
-
-// get a user
 router.get("/find/:id", getUser);
 
-// subscribe a user
+router.put("/:id", verifyToken, update);
+router.delete("/:id", verifyToken, deleteUser);
+
 router.put("/sub/:id", verifyToken, subscribe);
+router.put("/unsub/:id", verifyToken, unsubscribe);
 
-// unsubscribe a user
-router.put("/unsub//:id", verifyToken, unsubscribe);
-
-// like a video
 router.put("/like/:videoID", verifyToken, like);
-
-// dislike a video
 router.put("/dislike/:videoID", verifyToken, dislike);
 
 export default router;
